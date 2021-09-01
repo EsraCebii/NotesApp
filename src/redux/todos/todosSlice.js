@@ -15,15 +15,16 @@ export const todosSlice = createSlice({
             color: "bg-danger"
 
         }
-        ]
+        ],
+        colors: ["bg-primary","bg-secondary","bg-success","bg-danger","bg-warning","bg-light"],
+
     },
     reducers: {
         addTodo: (state, action) => {
             state.items.push(action.payload)
         },
-
     },
 });
 
-export const { addTodo } = todosSlice.actions;
+export const { addTodo} = todosSlice.actions;
 export default todosSlice.reducer;
