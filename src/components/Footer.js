@@ -7,7 +7,6 @@ function Footer() {
     
     return (
         <ul className="row row-cols-1 row-cols-md-3 g-4">
-
             {
                 items.map((item)=> (
                     <li className={`card mr-3 my-3 col ${item.color}`} key={item.id}>

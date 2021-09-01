@@ -13,18 +13,21 @@ export const todosSlice = createSlice({
             id: '2',
             title: "Learn Redux",
             color: "bg-danger"
-
         }
         ],
         colors: ["bg-primary","bg-secondary","bg-success","bg-danger","bg-warning","bg-light"],
+        search: "",
 
     },
     reducers: {
         addTodo: (state, action) => {
             state.items.push(action.payload)
         },
+        searchArea: (state, action) => {
+            state.search.push(action.payload)
+        }
     },
 });
 
-export const { addTodo} = todosSlice.actions;
+export const { addTodo, searchArea} = todosSlice.actions;
 export default todosSlice.reducer;

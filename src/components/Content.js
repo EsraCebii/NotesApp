@@ -7,12 +7,14 @@ import { nanoid } from '@reduxjs/toolkit';
 function Content() {
     const [title, setTitle] = useState('');
     const [color, setColor ] = useState('');
-    const dispatch = useDispatch();
 
+
+    const dispatch = useDispatch();
     const handleSubmit = (e) => {
         dispatch(addTodo({ id: nanoid(), title,color: color}));
         setTitle('');
     }
+    
     const colors = useSelector(state => state.todos.colors);
 
     return (
