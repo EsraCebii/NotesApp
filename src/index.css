@@ -101,12 +101,16 @@ animation: hoverShake 0.15s linear 3;
   -webkit-border-radius: 50%;
   border-radius: 50%;
   margin-right: 3px;
+  
 }
 
 .addbtn {
   border: none;
+  width: auto;
   color: white;
-  margin-left: 230px;
+  display: flex;
+  text-align: end;
+  justify-content: end;
   background-color: orangered;
   padding: 10px 20px;
   cursor: pointer;
@@ -114,7 +118,9 @@ animation: hoverShake 0.15s linear 3;
   -moz-border-radius: 16px;
   -webkit-border-radius: 16px;
   border-radius: 16px;
+  margin-right: 250px;
 }
+
 
 
 

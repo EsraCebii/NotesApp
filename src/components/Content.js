@@ -1,19 +1,72 @@
-import React from 'react'
+import { useState } from 'react';
+import { useDispatch, } from 'react-redux';
+import { addTodo } from '../redux/todos/todosSlice';
+import { nanoid } from '@reduxjs/toolkit';
+import { Formik, Form, Field } from 'formik';
 
 function Content() {
+    const [title, setTitle] = useState('');
+    const [color, setColor] = useState('');
+    const dispatch = useDispatch();
+
+    const handleSubmit = (e) => {
+        dispatch(addTodo({ id: nanoid(), title: title, color: color}));
+        setTitle('');
+    }
+    const onSubmit = {
+
+    }
     return (
         <>
-            <textarea className="textarea" placeholder="Remember, be nice!" cols="75" rows="10" >
-            </textarea>
-            <button type="checkbox" className="btn btn-primary"></button>
-            <button className="btn btn-secondary"></button>
-            <button className="btn btn-danger"></button>
-            <button className="btn btn-warning"></button>
-            <button className="btn btn-light"></button>
-            <button className="btn btn-dark"></button>
-            <button className="addbtn"> Add</button>
+            <Formik
+                initialValues={{
+                    selected: '',
+                }}
+                  onSubmit={async (values) => {
+                    await new Promise((r) => setTimeout(r, 500));
+                    alert(JSON.stringify(values, null, 2));
+                }}
+
+            >
+                {({ values }) => (
+
+                <Form className="d-flex flex-column ">
+                    <textarea
+                    className="textarea d-flex" placeholder="Remember, be nice!" cols="75"
+                    rows="10"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}>
+                    </textarea>
+                    <div className="d-flex ">
+                        <label>
+                        <button type="submit" className="addbtn" onClick={handleSubmit}> Add</button>
+                        </label>
+                        <label >
+                            <Field type="radio" className="btn bg-primary" value="blue" name="selected"></Field>
+                        </label>
+                        <label>
+                            <Field type="radio" className="btn bg-secondary" value="gray" name="selected"></Field>
+                        </label>
+                        <label>
+                            <Field type="radio" className="btn bg-danger" value="red" name="selected"></Field>
+                        </label>
+                        <label>
+                            <Field type="radio" value="yellow" className="btn bg-warning" name="selected"></Field>
+                        </label>
+                        <label>
+                            <Field type="radio" value="green" className="btn btn-success" name="selected"></Field>
+                        </label>
+                        <label>
+                            <Field type="radio" value="black" className="btn btn-dark" name="selected"></Field>
+                        </label>
+                    </div>  
+                    <h5> Seçilen renk : {values.selected}</h5>  
+                     
+                </Form>
+                )}
+            </Formik>
         </>
     )
 }
 
-export default Content
+ export default Content;
