@@ -24,7 +24,7 @@ export const todosSlice = createSlice({
             state.items.push(action.payload)
         },
         searchArea: (state, action) => {
-            state.search.push(action.payload)
+            state.search = action.payload
         }
     },
 });

@@ -13,7 +13,8 @@ function Header() {
         <header className="header">
             <h1>NotesApp</h1>
                 <div className="search-container">
-                    <input placeholder="Search..." className="search-input" onChange={handleChange}/>
+                    <input placeholder="Search..." className="search-input" onChange={handleChange}
+                    />
                     <a href="/#" className="search-btn">
                         <i className="fas fa-search"></i>
                     </a>
